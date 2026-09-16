@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRIC — Cricket AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-mark">C</div>
+      <div><strong>CRIC</strong><span>Cricket AI</span></div>
+      <button class="close-sidebar" onclick="toggleSidebar()">×</button>
+    </div>
+
+    <button class="new-chat" onclick="newChat()"><span>＋</span> New chat</button>
+
+    <div class="side-label">Explore</div>
+    <nav class="nav-list">
+      <button class="nav-item active" onclick="quickAsk('Show me the latest cricket rankings')"><span>⌁</span> Rankings</button>
+      <button class="nav-item" onclick="quickAsk('Tell me about the best cricket players')"><span>♙</span> Players</button>
+      <button class="nav-item" onclick="quickAsk('What are the upcoming cricket matches?')"><span>◷</span> Matches</button>
+      <button class="nav-item" onclick="quickAsk('Explain the most important cricket rules')"><span>▤</span> Rules</button>
+    </nav>
+
+    <div class="side-label history-label">Recent</div>
+    <div class="history">
+      <button>ICC rankings overview</button>
+      <button>Best T20 batsmen</button>
+      <button>LBW rule explained</button>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div class="status"><i></i> AI assistant online</div>
+      <button class="settings" onclick="toggleTheme()"><span>☼</span> Toggle appearance</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+        <div>
+          <h1>CRIC Assistant</h1>
+          <p><i></i> Cricket specialist</p>
+        </div>
+      </div>
+      <button class="top-action" onclick="newChat()">＋ <span>New chat</span></button>
+    </header>
+
+    <section class="chat-area" id="messages">
+      <div class="welcome" id="welcome">
+        <div class="hero-mark">C</div>
+        <div class="eyebrow">YOUR CRICKET COMPANION</div>
+        <h2>What do you want to know<br><span>about cricket?</span></h2>
+        <p>Ask about players, teams, rankings, matches, statistics, or rules.</p>
+
+        <div class="suggestions">
+          <button onclick="quickAsk('Who is the No. 1 ODI batsman?')"><span>🏆</span><div><b>Top ODI batsman</b><small>Ask about current rankings</small></div><em>→</em></button>
+          <button onclick="quickAsk('Show me the top 5 T20 teams')"><span>📊</span><div><b>Top T20 teams</b><small>Compare team rankings</small></div><em>→</em></button>
+          <button onclick="quickAsk('Compare Virat Kohli and Babar Azam')"><span>⚔️</span><div><b>Compare players</b><small>Stats and career records</small></div><em>→</em></button>
+          <button onclick="quickAsk('Explain the LBW rule simply')"><span>📖</span><div><b>Explain a rule</b><small>Simple cricket explanations</small></div><em>→</em></button>
+        </div>
+      </div>
+    </section>
+
+    <div class="composer-wrap">
+      <form class="composer" id="form">
+        <button type="button" class="attach" title="Attachments">＋</button>
+        <input id="input" autocomplete="off" placeholder="Ask CRIC anything about cricket…" />
+        <button class="send" type="submit" aria-label="Send">↑</button>
+      </form>
+      <div class="composer-note">CRIC can make mistakes. Verify important current statistics.</div>
+    </div>
+  </main>
+</div>
+<script src="/static/script.js"></script>
+</body>
+</html>

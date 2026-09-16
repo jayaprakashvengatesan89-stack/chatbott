@@ -1,0 +1,72 @@
+*{box-sizing:border-box}
+:root{--bg:#f6f8fc;--panel:#fff;--line:#e7ebf2;--text:#182235;--muted:#7b879b;--blue:#2166f3;--blue2:#174fc9;--soft:#f0f5ff}
+*{scrollbar-width:thin}
+body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text);height:100vh}
+button,input{font:inherit}
+button{cursor:pointer}
+.app-shell{height:100vh;display:flex;overflow:hidden}
+.sidebar{width:274px;background:var(--panel);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:22px 16px;flex-shrink:0}
+.brand{display:flex;align-items:center;gap:11px;padding:4px 8px 24px}
+.brand-mark,.hero-mark{display:grid;place-items:center;font-weight:800;color:#fff;background:linear-gradient(145deg,#3478ff,#174fc9);box-shadow:0 10px 25px rgba(33,102,243,.22)}
+.brand-mark{width:40px;height:40px;border-radius:12px;font-size:18px}
+.brand strong{display:block;font-size:17px;letter-spacing:.5px}
+.brand span{display:block;color:var(--muted);font-size:11px;margin-top:2px}
+.close-sidebar{display:none;margin-left:auto;border:0;background:transparent;font-size:25px;color:var(--muted)}
+.new-chat{height:44px;border:0;border-radius:11px;background:var(--blue);color:white;font-weight:700;box-shadow:0 7px 18px rgba(33,102,243,.18);transition:.2s}
+.new-chat:hover{background:var(--blue2);transform:translateY(-1px)}
+.new-chat span{font-size:18px;vertical-align:-1px;margin-right:5px}
+.side-label{font-size:10px;font-weight:800;letter-spacing:1.2px;color:#9aa5b7;margin:26px 9px 9px;text-transform:uppercase}
+.nav-list{display:grid;gap:4px}
+.nav-item,.history button,.settings{width:100%;border:0;background:transparent;text-align:left;border-radius:9px;color:#566277;padding:10px 11px;transition:.15s}
+.nav-item span{display:inline-block;width:24px;color:#8390a4;font-size:16px}
+.nav-item:hover,.history button:hover,.settings:hover{background:#f4f6fa;color:var(--text)}
+.nav-item.active{background:var(--soft);color:var(--blue);font-weight:700}
+.nav-item.active span{color:var(--blue)}
+.history-label{margin-top:23px}
+.history{display:grid;gap:2px}
+.history button{font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sidebar-bottom{margin-top:auto;border-top:1px solid var(--line);padding-top:14px}
+.status{font-size:11px;color:#6e7b90;padding:8px 10px 11px}
+.status i,.topbar p i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#25bd72;margin-right:6px}
+.settings{font-size:11px}.settings span{margin-right:7px;font-size:15px}
+.main{flex:1;min-width:0;display:flex;flex-direction:column}
+.topbar{height:76px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 32px;flex-shrink:0}
+.topbar-left{display:flex;align-items:center;gap:13px}
+.menu-btn{display:none;border:0;background:transparent;color:var(--text);font-size:21px}
+.topbar h1{font-size:15px;margin:0 0 4px;font-weight:700}
+.topbar p{margin:0;color:var(--muted);font-size:10px}
+.top-action{border:1px solid var(--line);background:#fff;color:#5d697d;border-radius:9px;padding:9px 13px;font-size:12px;font-weight:600}
+.chat-area{flex:1;overflow:auto;padding:40px 20px 28px}
+.welcome{max-width:790px;margin:10px auto 0;text-align:center}
+.hero-mark{width:62px;height:62px;border-radius:19px;font-size:27px;margin:0 auto 18px}
+.eyebrow{font-size:9px;letter-spacing:2px;font-weight:800;color:var(--blue);margin-bottom:12px}
+.welcome h2{font-size:34px;line-height:1.16;letter-spacing:-1.2px;margin:0}
+.welcome h2 span{color:#748096}
+.welcome>p{color:var(--muted);font-size:13px;margin:13px 0 29px}
+.suggestions{display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:left}
+.suggestions button{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px 14px;min-height:72px;color:var(--text);transition:.18s}
+.suggestions button:hover{border-color:#c8d8fb;box-shadow:0 8px 22px rgba(32,53,90,.07);transform:translateY(-1px)}
+.suggestions button>span{width:35px;height:35px;display:grid;place-items:center;background:#f3f6fb;border-radius:10px;font-size:16px}
+.suggestions b{display:block;font-size:12px;margin-bottom:4px}
+.suggestions small{display:block;color:var(--muted);font-size:10px}
+.suggestions em{font-style:normal;color:#a1abbb;margin-left:auto;font-size:16px}
+.message{max-width:790px;margin:0 auto 14px;display:flex;animation:rise .2s ease}
+.message.user{justify-content:flex-end}.bubble{max-width:76%;padding:12px 15px;border-radius:14px;font-size:13px;line-height:1.55;white-space:pre-wrap}
+.user .bubble{background:var(--blue);color:#fff;border-bottom-right-radius:4px}
+.bot .bubble{background:#fff;border:1px solid var(--line);border-bottom-left-radius:4px;box-shadow:0 3px 12px rgba(20,35,65,.04)}
+.typing{display:flex;gap:4px;padding:4px 0}.typing i{width:5px;height:5px;border-radius:50%;background:#94a0b3;animation:blink 1s infinite}.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
+.composer-wrap{padding:0 20px 18px}
+.composer{width:min(790px,100%);margin:auto;display:flex;align-items:center;gap:7px;background:#fff;border:1px solid #dfe5ee;border-radius:15px;padding:7px;box-shadow:0 8px 25px rgba(20,35,65,.06)}
+.composer input{flex:1;border:0;outline:0;padding:11px 5px;color:var(--text);background:transparent;font-size:13px}
+.composer input::placeholder{color:#9aa5b5}
+.attach,.send{width:38px;height:38px;border-radius:10px;border:0;display:grid;place-items:center}
+.attach{background:transparent;color:#8d99ab;font-size:20px}.send{background:var(--blue);color:#fff;font-weight:800;font-size:19px}
+.composer-note{text-align:center;color:#a0a9b7;font-size:9px;margin-top:8px}
+@keyframes rise{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+@keyframes blink{50%{opacity:.25}}
+.dark{--bg:#0d1420;--panel:#141d2c;--line:#263247;--text:#edf2f8;--muted:#9ba8bb;--soft:#182b4b}
+.dark .topbar,.dark .composer,.dark .suggestions button,.dark .bot .bubble,.dark .top-action{background:#141d2c;border-color:#263247}
+.dark .suggestions button>span{background:#1b2638}.dark .nav-item,.dark .history button,.dark .settings{color:#aab5c7}.dark .nav-item:hover,.dark .history button:hover,.dark .settings:hover{background:#1a2434}
+.dark .composer input{color:#edf2f8}
+@media(max-width:800px){.sidebar{position:fixed;z-index:10;left:-290px;top:0;bottom:0;transition:left .2s;box-shadow:12px 0 30px rgba(0,0,0,.12)}.sidebar.open{left:0}.close-sidebar{display:block}.menu-btn{display:block}.topbar{padding:0 18px}.top-action span{display:none}}
+@media(max-width:600px){.chat-area{padding:28px 14px 20px}.welcome h2{font-size:28px}.suggestions{grid-template-columns:1fr}.composer-wrap{padding:0 12px 14px}.bubble{max-width:88%}}
