@@ -1,6 +1,0 @@
-Flask>=3.1,<4
-Flask-Session>=0.8,<1
-cachelib>=0.13,<1
-google-genai>=1.0
-python-dotenv>=1.0,<2
-gunicorn>=23,<24
